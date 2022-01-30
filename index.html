@@ -613,36 +613,41 @@
 
           </div>
 
-<!--           <div class="col-lg-7 mt-5 mt-lg-0 d-flex align-items-stretch">
-            <form action="forms/contact.php" method="post" role="form" class="php-email-form">
+          <!-- Form Google Spreadsheet -->
+
+          <div class="col-lg-7 mt-5 mt-lg-0 d-flex align-items-stretch">
+            <form name="form-contact">
               <div class="row">
                 <div class="form-group col-md-6">
                   <label for="name">Your Name</label>
-                  <input type="text" name="name" class="form-control" id="name" required>
+                  <input type="text" name="nama" class="form-control" id="name" required>
                 </div>
                 <div class="form-group col-md-6">
                   <label for="name">Your Email</label>
                   <input type="email" class="form-control" name="email" id="email" required>
                 </div>
               </div>
-              <div class="form-group">
-                <label for="name">Subject</label>
-                <input type="text" class="form-control" name="subject" id="subject" required>
-              </div>
-              <div class="form-group">
+              <div class="form-group mt-3">
                 <label for="name">Message</label>
-                <textarea class="form-control" name="message" rows="10" required></textarea>
+                <textarea class="form-control" name="pesan" rows="10" required></textarea>
               </div>
-              <div class="my-3">
-                <div class="loading">Loading</div>
-                <div class="error-message"></div>
-                <div class="sent-message">Your message has been sent. Thank you!</div>
+              <div class="text-center mt-3">
+                <button type="submit" class="btn btn-primary btn-kirim">Send Message</button>
+                <!-- btn loading -->
+                <button class="btn btn-primary btn-loading d-none" type="button" disabled>
+                  <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>Loading...
+                </button>
               </div>
-              <div class="text-center"><button type="submit">Send Message</button></div>
             </form>
           </div>
 
-        </div> -->
+          <div class="alert alert-success alert-dismissible fade show mt-3 my-alert d-none" role="alert">
+            <strong>Thankyou, </strong> Thank you, your message has been sent.
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+          </div>
+
+        </div>
+        
 
       </div>
     </section><!-- End Contact Section -->
@@ -680,6 +685,38 @@
 
   <!-- Template Main JS File -->
   <script src="assets/js/main.js"></script>
+
+
+  <!-- google spreadsheet -->
+  <script>
+  const scriptURL = 'https://script.google.com/macros/s/AKfycbxijJLyMVHXzQW0W2F0tVt63T-YennSfbdNeufzKuyo_eLZ9twokpRVW5_HY3UguKqC/exec'
+  const form = document.forms['form-contact'];
+  const btnKirm = document.querySelector('.btn-kirim');
+  const btnLoading = document.querySelector('.btn-loading');
+  const myAlret = document.querySelector('.my-alert');
+
+
+  form.addEventListener('submit', e => {
+    e.preventDefault()
+
+    // menampilkan tombol loading dan menghilangkan tombol kirim
+    btnLoading.classList.toggle('d-none');
+    btnKirm.classList.toggle('d-none');
+    fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+      .then(response => {
+        // menampilkan tombol kirim dan menghilangkan tombol loading
+        btnLoading.classList.toggle('d-none');
+        btnKirm.classList.toggle('d-none');
+        // meanmpilkan alert
+        myAlret.classList.toggle('d-none');
+        // reset form
+        form.reset();
+        console.log('Success!', response);
+      })
+      .catch(error => console.error('Error!', error.message))
+  })
+  </script>
+
 
 </body>
 
