@@ -235,7 +235,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 #hero h1 {
-  margin: 0 0 10px 0;
+  margin: 0 0 10px 60px;
   font-size: 64px;
   font-weight: 700px;
   line-height: 26px;
@@ -245,7 +245,8 @@ h1, h2, h3, h4, h5, h6 {
 
 #hero p {
   color: #fff;
-  margin-bottom: 50px;
+  margin: 0 0 50px 65px;
+  /* margin-bottom: 50px; */
   font-size: 26px;
   font-family: "Poppins", sans-serif;
 }
@@ -279,7 +280,7 @@ h1, h2, h3, h4, h5, h6 {
 # Sections General
 --------------------------------------------------------------*/
 section {
-  padding: 60px 0;
+  padding: 10px 0;
   overflow: hidden;
 }
 
@@ -370,17 +371,17 @@ section {
   cursor: pointer;
   display: flex;
   align-self: center;
-  font-size: 1rem;
-  font-weight: 400;
+  /* font-size: 1rem; */
+  /* font-weight: 400; */
   line-height: 1;
   /* margin: 20px; */
   padding: 0.8em 1.8em;
   text-decoration: none;
   text-align: center;
-  font-size: 15px;
+  font-size: 12px;
   font-family: 'Montserrat', sans-serif;
-  font-weight: 700;
-  width: 178px;
+  /* font-weight: 700; */
+  /* width: 178px; */
   margin-top: 60px;
 }
 .btnres:hover, .btnres:focus {
@@ -861,9 +862,11 @@ section {
 
 .contact .info {
   padding: 30px;
-  background: #fff;
+  background: rgba(0, 0, 0, 0.59);
   width: 100%;
   box-shadow: 0 0 24px 0 rgba(0, 0, 0, 0.12);
+  border-radius: 3px;
+  margin-right: 80px;
 }
 
 .contact .info i {
@@ -872,7 +875,7 @@ section {
   float: left;
   width: 44px;
   height: 44px;
-  background: #dff3fc;
+  background: #ffffff;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -885,14 +888,21 @@ section {
   font-size: 22px;
   font-weight: 600;
   margin-bottom: 5px;
-  color: #050d18;
+  color: #ffffff;
 }
 
 .contact .info p {
   padding: 0 0 10px 60px;
   margin-bottom: 20px;
   font-size: 14px;
-  color: #173b6c;
+  color: #149ddd;
+}
+
+.contact .formcontact{
+  background: rgba(0, 0, 0, 0.59);
+  justify-content: center;
+  border-radius: 3px;
+  
 }
 
 .contact .info .email p {
